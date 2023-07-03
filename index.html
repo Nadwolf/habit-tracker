@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="img/favicons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="img/favicons/favicon_180.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>Habbit - трекер привычек</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="logo">
+          <img src="img/logo.svg" alt="Logo Habbit" />
+        </div>
+        <nav class="navigation">
+          <div class="menu"></div>
+          <button class="add-button" onclick="toglePopup()">
+            <svg class="add-button-icon">
+              <use xlink:href="img/sprite.svg#add"></use>
+            </svg>
+          </button>
+        </nav>
+      </header>
+      <main class="habit">
+        <div class="habbit-content">
+          <header class="habit-header">
+            <h2 class="habit-title"></h2>
+            <div class="progres">
+              <p class="progres-title">Прогресс</p>
+              <p class="progres-percent"></p>
+              <div class="progres-bar"></div>
+            </div>
+          </header>
+          <ul class="habit-list" role="list"></ul>
+          <div class="comment new-comment">
+            <h3 class="comment-day"></h3>
+            <form class="comment-description" onsubmit="addDays(event)">
+              <input
+                class="comment-input"
+                placeholder="Комментарий"
+                name="newDayComment"
+                type="text"
+              />
+              <button class="button" type="submit">Готово</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="popup">
+      <h3 class="popup-head">Новая привычка</h3>
+      <p class="popup-subtext">Иконка</p>
+      <form class="popup-form" onsubmit="addHabbit(event)">
+        <div class="popup-button-list">
+          <input
+            type="radio"
+            name="habbit"
+            id="habbit-sport"
+            value="sport"
+            class="popup-radio"
+          />
+          <label for="habbit-sport" class="popup-button">
+            <svg class="popup-icon">
+              <use xlink:href="img/sprite.svg#sport"></use>
+            </svg>
+          </label>
+          <input
+            type="radio"
+            name="habbit"
+            id="habbit-water"
+            value="water"
+            class="popup-radio"
+          />
+          <label for="habbit-water" class="popup-button">
+            <svg class="popup-icon">
+              <use xlink:href="img/sprite.svg#water"></use>
+            </svg>
+          </label>
+          <input
+            type="radio"
+            name="habbit"
+            id="habbit-food"
+            value="food"
+            class="popup-radio"
+          />
+          <label for="habbit-food" class="popup-button">
+            <svg class="popup-icon">
+              <use xlink:href="img/sprite.svg#food"></use>
+            </svg>
+          </label>
+        </div>
+        <div class="popup-input-list">
+          <input
+            class="popup-input"
+            placeholder="Название"
+            name="habbitName"
+            type="text"
+          />
+          <input
+            class="popup-input"
+            placeholder="Цель"
+            name="habbitGoal"
+            type="text"
+          />
+        </div>
+        <button class="button popup-form-button" type="submit">Добавить</button>
+      </form>
+      <button class="popup-close" onclick="toglePopup()">
+        <svg class="popup-close-icon">
+          <use xlink:href="img/sprite.svg#cross"></use>
+        </svg>
+      </button>
+    </div>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

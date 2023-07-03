@@ -1,0 +1,482 @@
+@import url(reset.css);
+@import url(common.css);
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--main-background);
+}
+
+.wrapper {
+  display: flex;
+  max-width: 100rem;
+}
+
+.header {
+  min-height: 100vh;
+  padding: 1.875rem;
+  background: var(--secondary-background);
+}
+
+.logo {
+  width: 4.125rem;
+  height: 4.4375rem;
+  margin-inline: auto;
+  margin-block-end: 3rem;
+}
+
+.logo img {
+  margin-inline: auto;
+}
+
+.navigation,
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5625rem;
+}
+
+.navigation:has(.menu:empty) {
+  gap: 0;
+}
+
+.menu-link {
+  display: block;
+  width: 2.8125rem;
+  height: 2.8125rem;
+  padding: 0.625rem;
+  border-radius: 0.875rem;
+  stroke: var(--accent-color);
+  background-color: #ffffff;
+  box-shadow: var(--batton-shadow);
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  background-color: var(--accent-color);
+  stroke: white;
+  filter: hue-rotate(10deg);
+}
+
+.menu-link-active {
+  background-color: var(--accent-color);
+  stroke: white;
+}
+
+.add-button,
+.popup-button {
+  width: 2.8125rem;
+  height: 2.8125rem;
+  padding: 0.75rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--batton-add);
+  background: none;
+  stroke: var(--batton-add);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.add-button-icon,
+.popup-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.add-button:hover,
+.add-button:focus {
+  border-color: var(--accent-color);
+  stroke: var(--accent-color);
+  filter: hue-rotate(10deg);
+}
+
+.habit {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2.8125rem 2.5rem 2.5rem;
+}
+
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-block-end: 1.875rem;
+  padding-inline-start: 0.625rem;
+}
+
+.habit-title {
+  color: var(--main-text);
+  font-size: 1.875rem;
+}
+
+.progres {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 14.6875rem;
+  width: 100%;
+}
+
+.progres-title {
+  color: var(--input-text);
+  font-size: 0.875rem;
+}
+
+.progres-percent {
+  color: var(--placeholder);
+  font-size: 0.75rem;
+}
+.progres-bar {
+  position: relative;
+  flex-basis: 100%;
+  height: 0.3125rem;
+  background-color: var(--progressbar);
+  overflow: hidden;
+}
+
+.progres-bar::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--progress);
+  height: 0.3125rem;
+  border-radius: 0.25rem;
+  background-color: var(--accent-color);
+  content: '';
+  transition: 300ms;
+}
+
+.habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.new-comment {
+  margin-top: 0.75rem;
+}
+
+.comment {
+  display: flex;
+}
+
+.comment-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8.125rem;
+  padding: 0.3125rem;
+  color: var(--main-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: var(--secondary-background);
+  border-radius: 0.625rem 0 0 0.625rem;
+  border-right: 1px solid var(--border);
+}
+
+.comment-description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 0.4375rem 0.3125rem 0.3125rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0 0.625rem 0.625rem 0;
+}
+
+.comment-text {
+  display: block;
+  padding-inline-end: 0.625rem;
+  color: var(--input-text);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0.5rem;
+  padding: 0.1875rem;
+  border: none;
+  border-radius: 0.3125rem;
+  background: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.delete:hover {
+  background: var(--button-color);
+}
+
+.delete-button-icon {
+  width: 1.375rem;
+  height: 1.5rem;
+}
+
+.comment-input {
+  width: 100%;
+  height: 100%;
+  padding: 0.3125rem 0.3125rem 0.3125rem 3.125rem;
+  color: var(--input-text);
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: url('../img/chat.svg') no-repeat 1.25rem 0.8125rem;
+  border-radius: 0.625rem;
+}
+
+.comment-input::placeholder {
+  color: var(--placeholder);
+  font-size: 0.875rem;
+}
+
+.button {
+  margin-inline-start: 0.875rem;
+  padding: 0.875rem 2rem 0.6875rem;
+  color: var(--accent-color);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.625rem;
+  border: 1px solid transparent;
+  background-color: var(--button-color);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.button:hover {
+  border-color: var(--border);
+  filter: contrast(0.93);
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  height: 100%;
+  padding-block: 2.5rem;
+}
+
+.greeting-title {
+  position: relative;
+  background-color: var(--main-text);
+  font-size: 70px;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(182, 182, 182, 0.4) 0px 3px 3px;
+}
+
+.greeting-subtitle {
+  position: absolute;
+  top: 10px;
+  right: 24px;
+  color: var(--sub-text);
+  font-size: 14px;
+  text-shadow: rgba(182, 182, 182, 0.5) 0px 3px 3px;
+}
+
+.popup {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 5;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  max-width: 26.5rem;
+  width: 100%;
+  padding: 1.38rem;
+  border-radius: 0.625rem;
+  background-color: #ffffff;
+  transform: translate(-50%, -50%);
+}
+
+.popup-open {
+  display: flex;
+}
+
+.shadow::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: var(--shadow-background);
+  content: '';
+}
+
+.popup-head {
+  margin-bottom: 1.125rem;
+  color: var(--main-text);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.popup-subtext {
+  margin-bottom: 0.5rem;
+  color: var(--sub-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.popup-button-list {
+  display: flex;
+  gap: 1.5625rem;
+}
+
+.popup-button {
+  border: 1px solid var(--accent-color);
+  stroke: var(--accent-color);
+}
+
+.popup-button:hover,
+.popup-button:focus {
+  background: var(--accent-color);
+  stroke: #ffffff;
+  filter: hue-rotate(10deg);
+}
+
+.popup-radio {
+  display: none;
+}
+
+.popup-radio:checked + .popup-button {
+  background: var(--accent-color);
+  stroke: #ffffff;
+}
+
+.popup-input-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+}
+
+.popup-input {
+  width: 100%;
+  padding: 0.375rem 1.25rem;
+  color: var(--main-text);
+  font-size: 1rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--border);
+}
+
+.popup-input::placeholder {
+  color: var(--placeholder);
+  font-size: 0.875rem;
+}
+
+.popup-form-button {
+  margin: 0;
+}
+
+.popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  stroke: var(--sub-text);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.popup-close:hover,
+.popup-close:focus {
+  stroke: var(--accent-color);
+}
+
+.popup-close-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.error {
+  outline: 1px solid rgb(194, 13, 13);
+}
+
+@media screen and (max-width: 450px) {
+  .popup {
+    top: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    padding: 1.875rem 0.3125rem;
+  }
+
+  .logo {
+    width: 100%;
+    height: auto;
+  }
+
+  .habit-header {
+    flex-direction: column;
+  }
+
+  .comment {
+    flex-direction: column;
+  }
+
+  .comment-day {
+    padding: 0.625rem;
+    border-radius: 0.625rem 0.625rem 0 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comment-description {
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    border-radius: 0 0 0.625rem 0.625rem;
+    padding-left: 0.3125rem;
+  }
+
+  .comment-text {
+    flex-basis: 100px;
+    flex-grow: 1;
+    padding: 0.625rem 0;
+  }
+
+  .comment-input {
+    width: 100%;
+    padding-block: 0.75rem;
+  }
+
+  .button {
+    width: 100%;
+    margin: 0;
+  }
+}

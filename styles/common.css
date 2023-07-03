@@ -1,0 +1,21 @@
+:root {
+  --main-background: #f3f6fd;
+  --secondary-background: #fbfaff;
+  --accent-color: #5051f9;
+  --border: #e7ebfb;
+  --main-text: #000000;
+  --sub-text: #768396;
+  --input-text: #23235f;
+  --placeholder: #94a3bd;
+  --progressbar: #e6e9ed;
+  --button-color: #edecfe;
+  --batton-add: #cad5ff;
+  --batton-shadow: 0px 8px 14px 0px rgba(62, 107, 224, 0.12);
+  --popup-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
+  --shadow-background: rgba(0, 0, 0, 0.25);
+  --progress: 0%;
+}
+
+body {
+  font-family: 'Comfortaa', cursive;
+}
