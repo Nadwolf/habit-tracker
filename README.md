@@ -21,7 +21,7 @@ cd habit-tracker
 3. Установите зависимости:
 
 ```bash
-npm install
+npm ci
 ```
 
 ## Запуск проекта
